@@ -13,6 +13,7 @@ import math
 import time
 import sys
 
+# Generate QR command
 if sys.argv[1] == "--generate-qr":
     # String which represents the QR code
     qr_string = "otpauth://totp/Ernest_Kim_CS370?secret=JBSWY3DPEHPK3PXP"
@@ -34,7 +35,7 @@ def int_to_bytestring(i: int, padding: int = 8) -> bytes:
 
     return bytes(bytearray(reversed(b_string)).rjust(padding, b'\0'))
 
-
+# Get One Time Password command
 if sys.argv[1] == "--get-otp":
     # Secret Key
     key = base64.b32decode(b"JBSWY3DPEHPK3PXP")
