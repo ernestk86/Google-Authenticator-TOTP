@@ -60,22 +60,10 @@ if sys.argv[1] == "--get-otp":
             hex_byte_string[offset + 6] + hex_byte_string[offset + 7])
 
         # Make sure MSB is 0
-        if DBC[0] == "8":
-            DBC[0] = "0"
-        if DBC[0] == "9":
-            DBC[0] = "1"
-        if DBC[0] == "a":
-            DBC[0] = "2"
-        if DBC[0] == "b":
-            DBC[0] = "3"
-        if DBC[0] == "c":
-            DBC[0] = "4"
-        if DBC[0] == "d":
-            DBC[0] = "5"
-        if DBC[0] == "e":
-            DBC[0] = "6"
-        if DBC[0] == "f":
-            DBC[0] = "7"
+        if ord(DBC[0]) >= 97:
+            DBC[0] = chr(ord(DBC[0]) - 47)
+        elif ord(DBC[0]) >= 48 and ord(DBC[0]) <= 57:
+            DBC[0] = chr(ord(DBC[0]) - 8)
 
         # Convert list to a string
         DBC_string = str(DBC[0] + DBC[1] + DBC[2] + DBC[3] + DBC[4] + DBC[5] + DBC[6] + DBC[7])
